@@ -1,0 +1,65 @@
+### register user
+
+POST http://localhost:3001/user/register
+Content-Type: application/json
+
+{
+  "name": "Nick",
+  "email": "nick@mail.com",
+  "password": "hello"
+}
+
+### login user
+
+POST http://localhost:3001/user/login
+Content-Type: application/json
+
+{
+  "email": "nick@mail.com",
+  "password": "hello"
+}
+
+### refresh token
+
+POST http://localhost:3001/user/token
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMjJhZTgwLWY5MzEtNDI0Ny1hNDEwLWI1OGE5NDdiNTZhZSIsImVtYWlsIjoibmlja2RmZGZnQG1haWwuY29tIiwibmFtZSI6Ik5pY2siLCJpYXQiOjE3MTc1OTQyNTYsImV4cCI6MTcxNzY4MDY1Nn0.jOXDHF85kzEoTPS5ynACOd1oPHEjSiHFcX83Hs0ootU;
+
+### logout user
+
+POST http://localhost:3001/user/logout
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMjJhZTgwLWY5MzEtNDI0Ny1hNDEwLWI1OGE5NDdiNTZhZSIsImVtYWlsIjoibmlja2RmZGZnQG1haWwuY29tIiwibmFtZSI6Ik5pY2siLCJpYXQiOjE3MTc1OTQwMDgsImV4cCI6MTcxNzY4MDQwOH0.fUayeVW4ykshQPjJvDaA0whDEVJKxNnIKm1Z75HGtqM;
+
+### get user by id
+
+GET http://localhost:3001/profile/bcf58faf-e430-44ef-af45-f38c597d62cf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjU4ZmFmLWU0MzAtNDRlZi1hZjQ1LWYzOGM1OTdkNjJjZiIsImVtYWlsIjoibmlja0BtYWlsLmNvbSIsIm5hbWUiOiJOaWNrIiwiaWF0IjoxNzE3NTk0OTY4LCJleHAiOjE3MTc1OTg1Njh9.uIAbNsIBEQ73sYCBMCYA10jHIFugvrE9uMJ2r7tyS1I
+
+### get users
+
+GET http://localhost:3001/profiles
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjU4ZmFmLWU0MzAtNDRlZi1hZjQ1LWYzOGM1OTdkNjJjZiIsImVtYWlsIjoibmlja0BtYWlsLmNvbSIsIm5hbWUiOiJOaWNrIiwiaWF0IjoxNzE3NTk0OTY4LCJleHAiOjE3MTc1OTg1Njh9.uIAbNsIBEQ73sYCBMCYA10jHIFugvrE9uMJ2r7tyS1I
+
+### update user
+
+PUT http://localhost:3001/profile/bcf58faf-e430-44ef-af45-f38c597d62cf
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjU4ZmFmLWU0MzAtNDRlZi1hZjQ1LWYzOGM1OTdkNjJjZiIsImVtYWlsIjoibmlja0BtYWlsLmNvbSIsIm5hbWUiOiJOaWNrIiwiaWF0IjoxNzE3NTk0OTY4LCJleHAiOjE3MTc1OTg1Njh9.uIAbNsIBEQ73sYCBMCYA10jHIFugvrE9uMJ2r7tyS1I
+
+{
+  "lastName": "Matthews"
+}
+
+### update user with form-data
+
+PUT http://localhost:3001/profile/bcf58faf-e430-44ef-af45-f38c597d62cf
+Content-Type: multipart/form-data; boundary=boundary
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZjU4ZmFmLWU0MzAtNDRlZi1hZjQ1LWYzOGM1OTdkNjJjZiIsImVtYWlsIjoibmlja0BtYWlsLmNvbSIsIm5hbWUiOiJOaWNrIiwiaWF0IjoxNzE3NTk0OTY4LCJleHAiOjE3MTc1OTg1Njh9.uIAbNsIBEQ73sYCBMCYA10jHIFugvrE9uMJ2r7tyS1I
+
+--boundary
+Content-Disposition: form-data; name="lastName"
+
+Smith
+--boundary
+Content-Disposition: form-data; name="email"
+
+smith@mail.com
